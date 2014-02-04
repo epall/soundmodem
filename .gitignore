@@ -16,3 +16,48 @@
 *.exe
 *.out
 *.app
+
+# Dependency tracking
+.deps
+
+# Temporary build files
+Makefile.in
+configure.in
+Makefile
+config.guess
+config.log
+config.status
+configure
+autom4te.cache
+aclocal.m4
+
+# Configuration headers
+config.h
+config.h.in
+
+# Editor temporary files
+*~
+
+# Language files
+po/POTFILES
+
+# Files for timestamp tracking
+stamp-h1
+
+# Binaries
+afsk/gentbl
+configapp/src/soundmodemconfig
+fsk/gendf9icfilt
+fsk/genpsptbl
+matlib/tests
+newqpsk/genfilt
+p3dmodem/genp3dtbl
+p3dmodem/testcrc
+pammodem/genpamtbl
+pammodem/meas
+pskmodem/genpsktbl
+pskmodem/measpsk
+soundcard/chansim
+soundcard/chansimberr
+soundcard/soundmodem
+soundcard/testkiss
