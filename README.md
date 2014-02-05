@@ -1,7 +1,7 @@
 soundmodem
 ==========
 
-Fork of Thomas Sailors soundmodem - Ax25 software modem
+Fork of Thomas Sailers soundmodem - Ax25 software modem
 
 
 building
