@@ -46,6 +46,9 @@
 #ifdef HAVE_SYS_SOUNDCARD_H
 #include <sys/soundcard.h>
 #endif
+#ifdef HAVE_COREAUDIO_COREAUDIO_H
+#include <CoreAudio/CoreAudio.h>
+#endif
 
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -202,6 +205,18 @@ int sound_init(int sample_rate, int *sr)
 	if (sr)
 		*sr = audioinfo.record.sample_rate;
         return fd;
+}
+
+/* ---------------------------------------------------------------------- */
+/*
+ * OS X Core Audio
+ */
+
+#elif defined(HAVE_COREAUDIO_COREAUDIO_H)
+
+int sound_init(int sample_rate, int *sr)
+{
+    return -1;
 }
 
 #endif

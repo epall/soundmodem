@@ -59,6 +59,9 @@
 #ifdef HAVE_SYS_SOUNDCARD_H
 #include <sys/soundcard.h>
 #endif
+#ifdef HAVE_COREAUDIO_COREAUDIO_H
+#include <CoreAudio/CoreAudio.h>
+#endif
 
 /* ---------------------------------------------------------------------- */
 
@@ -457,6 +460,26 @@ static inline void iotxstart(struct audioio_unix *audioio)
         short s = 0;
 
         write(audioio->audiofd, &s, sizeof(s));
+}
+
+#endif
+
+/* ---------------------------------------------------------------------- */
+/*
+ * OS X Core Audio
+ */
+
+#if defined(HAVE_COREAUDIO_COREAUDIO_H)
+
+struct audioio *ioopen_soundcard(unsigned int *samplerate, unsigned int flags, const char *params[])
+{
+	struct audioio_unix *audioio;
+
+	audioio = calloc(1, sizeof(struct audioio_unix));
+	if (!audioio)
+		return NULL;
+
+    return audioio;
 }
 
 #endif

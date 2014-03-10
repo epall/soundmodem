@@ -51,6 +51,7 @@ AC_CHECK_LIB(pthread32,pthread_create,LIBTHREAD="$LIBTHREAD -lpthread32",AC_CHEC
 AC_CHECK_LIB(posix4,sched_setscheduler)
 AC_CHECK_LIB(uuid,GUID_NULL)
 AC_CHECK_FUNCS(getopt_long,,[AC_LIBOBJ([getopt]) AC_LIBOBJ([getopt1])])
+AC_CHECK_HEADERS(CoreAudio/CoreAudio.h)
 AC_CHECK_HEADERS(sys/audioio.h stropts.h sys/conf.h sys/soundcard.h sys/ioctl.h time.h inttypes.h net/if_arp.h)
 AC_CHECK_HEADERS(pty.h getopt.h syslog.h sched.h linux/sockios.h sys/ioccom.h linux/ppdev.h)
 AC_CHECK_HEADERS(sys/socket.h linux/if.h,,,
@@ -152,6 +153,11 @@ if test x$cross_compiling = xyes; then
     AUDIOFILE_LIBS="-L$CROSSCOMPPATH/audiofile/lib -laudiofile"
   fi
 else
+  case $target_os in
+    darwin*)
+      LIBS="$LIBS -framework CoreAudio -framework CoreFoundation"
+      ;;
+  esac
   PKG_CHECK_MODULES(XML,libxml-2.0)
   PKG_CHECK_MODULES(GTK,gtk+-2.0 >= 2.6.0)
   PKG_CHECK_MODULES(AUDIOFILE,audiofile)
