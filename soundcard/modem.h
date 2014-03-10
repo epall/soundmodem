@@ -103,7 +103,7 @@ extern void logvprintf(unsigned int level, const char *fmt, va_list args);
 extern void logprintf(unsigned int level, const char *fmt, ...);
 extern void logerr(unsigned int level, const char *st);
 extern unsigned int log_verblevel;
-extern inline int logcheck(unsigned int vl)
+inline int logcheck(unsigned int vl)
 {
 	return vl <= log_verblevel;
 }

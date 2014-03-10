@@ -271,7 +271,7 @@ int sound_init(int sample_rate, int *sr)
 
 /* ---------------------------------------------------------------------- */
 
-extern __inline__ unsigned int hweight32(unsigned int w)
+__inline__ unsigned int hweight32(unsigned int w)
 {
         unsigned int res = (w & 0x55555555) + ((w >> 1) & 0x55555555);
         res = (res & 0x33333333) + ((res >> 2) & 0x33333333);
