@@ -468,7 +468,7 @@ static void parseopts(int argc, char *argv[])
                         logerr(MLOG_ERROR, "mlockall");
         }
 #endif /* HAVE_MLOCKALL */
-#ifdef HAVE_SCHED_H
+#ifdef HAVE_SCHED_SETSCHEDULER
         if (schedrr) {
                 struct sched_param schp;
                 memset(&schp, 0, sizeof(schp));
@@ -476,7 +476,7 @@ static void parseopts(int argc, char *argv[])
                 if (sched_setscheduler(0, SCHED_RR, &schp) != 0)
                         logerr(MLOG_ERROR, "sched_setscheduler");
         }
-#endif /* HAVE_SCHED_H */
+#endif /* HAVE_SCHED_SETSCHEDULER */
 	if (daemonize) {
 		uch = 0;
 		if (write(pfds[1], &uch, sizeof(uch)) != sizeof(uch))
