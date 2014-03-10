@@ -35,7 +35,7 @@ soundmodemconfig_SOURCES = \
 
 soundmodemconfig_LDADD = ../../soundcard/liblog.a ../../soundcard/libaudioio.a ../../soundcard/libpttio.a \
 			$(MODEMLIBS) ../../matlib/libmat.a ../../libmisc/libmisc.a ../../soundcard/libcommon.a \
-			@LIBTHREAD@ @GTK_LIBS@ @XML_LIBS@ @AUDIOFILE_LIBS@ @ALSA_LIBS@ $(RCOBJ)
+			@LIBTHREAD@ @GTK_LIBS@ @XML_LIBS@ @AUDIOFILE_LIBS@ $(RCOBJ)
 soundmodemconfig_LDFLAGS = $(MWINDOWS)
 
 EXTRA_DIST = configapp.rc soundmodemconfig.8

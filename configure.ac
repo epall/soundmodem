@@ -99,14 +99,6 @@ AC_TRY_COMPILE([#include <math.h>],
      mlog10e=yes,AC_DEFINE(M_LOG10E,0.43429448190325182765,[define if M_LOG10E is not defined by math.h]))
 AC_MSG_RESULT($mlog10e)
 
-dnl check for ALSA
-case $target_os in
-  linux*)
-    AM_PATH_ALSA(1.0.0, AC_DEFINE(HAVE_ALSA,1,[Define if ALSA is available]))
-    ;;
-esac
-AC_SUBST(HAVE_ALSA)
-
 dnl Add the languages which your application supports here.
 ALL_LINGUAS="sv fr"
 AM_GNU_GETTEXT([external])
