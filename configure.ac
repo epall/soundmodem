@@ -288,7 +288,6 @@ libmisc/Makefile
 matlib/Makefile
 afsk/Makefile
 fsk/Makefile
-pammodem/Makefile
 pskmodem/Makefile
 newqpsk/Makefile
 p3dmodem/Makefile
