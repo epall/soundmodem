@@ -91,7 +91,7 @@ template<typename T> void mmul(T *c, const T *a, const T *b, unsigned int d1, un
                 memcpy(c, r, d1 * d3 * sizeof(c[0]));
 }
 
-template<typename T> void mdet(const T *c, unsigned int d)
+template<typename T> T mdet(const T *c, unsigned int d)
 {
         T *c2;
         unsigned int i, j, k, l;
@@ -447,7 +447,7 @@ template<typename T> void minv(T *ainv, const T *a, unsigned int d)
 	unsigned int k;
 
 	u = alloca(d * d * sizeof(u[0]));
-	p = alloca((d-1) * sizeof(p[0]));
+	p = (unsigned int *) (alloca((d-1) * sizeof(p[0])));
 	mlufact(u, p, a, d);
 	for (k = 0; k < d; k++) {
 		y = &ainv[k*d];

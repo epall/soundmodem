@@ -300,7 +300,7 @@ static void gentxfilt(FILE *f)
 static void genrxfilt(FILE *f)
 {
 	float coeff[RXFILTLEN * RXFILTOVER];
-	double tmul, at, t, f1, f2;
+	double tmul, f1, f2;
 	int i, j;
 
 	tmul = 1.0 * BITRATE / RXFILTOVER / SAMPLERATE;

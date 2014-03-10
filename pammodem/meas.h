@@ -53,8 +53,6 @@ typedef int int16_t __attribute__((__mode__(__HI__)));
 typedef unsigned int u_int16_t __attribute__((__mode__(__HI__)));
 typedef int int32_t __attribute__((__mode__(__SI__)));
 typedef unsigned int u_int32_t __attribute__((__mode__(__SI__)));
-typedef int int64_t __attribute__((__mode__(__DI__)));
-typedef unsigned int u_int64_t __attribute__((__mode__(__DI__)));
 #else
 typedef char /* deduced */ int8_t __attribute__((__mode__(__QI__)));
 typedef unsigned char /* deduced */ u_int8_t __attribute__((__mode__(__QI__)));
