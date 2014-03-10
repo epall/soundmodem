@@ -63,3 +63,4 @@ soundcard/soundmodem
 soundcard/testkiss
 config.guess
 compile
+soundmodem.conf
