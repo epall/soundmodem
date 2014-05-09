@@ -30,6 +30,8 @@ config.status
 configure
 autom4te.cache
 aclocal.m4
+config.guess
+compile
 
 # Configuration headers
 config.h
@@ -61,6 +63,6 @@ soundcard/chansim
 soundcard/chansimberr
 soundcard/soundmodem
 soundcard/testkiss
-config.guess
-compile
+
+# Local configuration files
 soundmodem.conf
