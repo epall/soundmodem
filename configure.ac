@@ -32,7 +32,7 @@ AC_EXEEXT
 AC_OBJEXT
 
 dnl check for cross compiler path
-if test x$cross_compiling = xyes; then
+if test $host = i686-pc-cygwin; then
   AC_MSG_CHECKING(for cross compiler path)
   if test -d /usr/local/cross/i686-pc-cygwin; then
     CROSSCOMPPATH=/usr/local/cross/i686-pc-cygwin
@@ -137,7 +137,7 @@ if test x$CYGWIN = xyes -o x$MINGW32 = xyes; then
   LIBS="$LIBS -ldsound -lgdi32"
 fi
 
-if test x$cross_compiling = xyes; then
+if test $host = i686-pc-cygwin; then
   gtk=no
   xlibs="$LIBS"
   LIBS="$LIBS -L$CROSSCOMPPATH/gtk/lib"
