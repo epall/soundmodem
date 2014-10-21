@@ -153,8 +153,10 @@ if test x$cross_compiling = xyes; then
   fi
 else
   PKG_CHECK_MODULES(XML,libxml-2.0)
-  PKG_CHECK_MODULES(GTK,gtk+-2.0 >= 2.6.0)
   PKG_CHECK_MODULES(AUDIOFILE,audiofile)
+  if test x$buildgui = xtrue; then
+          PKG_CHECK_MODULES(GTK,gtk+-2.0 >= 2.6.0)
+  fi
 fi
 
 dnl Check for recently introduced GTK symbols
@@ -255,11 +257,20 @@ if test x$usevis = xtrue; then
     CFLAGS="$CFLAGS -Wa,-xarch=v8plusa"
 fi
 
+AC_ARG_ENABLE(gui,
+[  --disable-gui            "Don't build GUI configuration tools"],
+[case "${enableval}" in
+  yes) buildgui=true ;;
+  no)  buildgui=false ;;
+  *) AC_MSG_ERROR(bad value ${enableval} for --disable-gui) ;;
+esac],[buildgui=true])
+
 AM_CONDITIONAL(USEMMX, test x$usemmx = xtrue)
 AM_CONDITIONAL(USEVIS, test x$usevis = xtrue)
 AM_CONDITIONAL(CROSSCOMP, test x$cross_compiling = xyes)
 AM_CONDITIONAL(DIRECTX, test x$directx = xyes)
 AM_CONDITIONAL(WIN32, test x$CYGWIN = xyes -o x$MINGW32 = xyes)
+AM_CONDITIONAL(BUILDGUI, test x$buildgui = xtrue)
 
 AC_SUBST(HAVE_BITTYPES)
 AC_SUBST(HAVE_DIRECTX)
